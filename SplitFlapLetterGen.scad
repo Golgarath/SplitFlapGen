@@ -3,7 +3,7 @@
 // Thanks to ProjektionTV & Community
 
 // Model to generate:  
-model = "all"; //[card, letter, all, loop]
+model = "all"; //[card, letter, all, loop, animation]
 
 //letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .!?0123456789";
 //Letter front side (flap is on top)
@@ -165,5 +165,18 @@ if (model == "loop"){
         rotate([180, 0, 0]) translate([(width+10)*(a%10),-height*2-distance - (height*2 + 10+distance) * floor(a / 10), -thickness]) 
             color ("gray") basecard();//card(letters[a+1], letters[a+2]);
         
+    }
+}
+
+
+if (model == "animation"){
+    animate = "ABCDEFGHIJKLMNOP";
+    for(i=[0 : 1 : len(animate) - 1]) {
+        angle = $t * 360 - i * (360 / (len(animate)));
+        angle2 = min((angle + 360) % 360, 250) - i;
+        translate([0, height, 0]) rotate([angle2, 0, 0]) translate([0, -height, 0]) {
+            color ("white") translate ([0, 0, -eps]) scale([1, 1, 1+eps2]) letter(animate[i], animate[(i + 1) % len(animate)]);
+            color ("gray") card(animate[i], animate[(i + 1) % len(animate)]);
+        }
     }
 }
