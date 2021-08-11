@@ -3,7 +3,7 @@
 // Thanks to ProjektionTV & Community
 
 // Model to generate:  
-model = "loop"; //[card, letter, all, loop]
+model = "all"; //[card, letter, all, loop]
 
 //letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .!?0123456789";
 //Letter front side (flap is on top)
@@ -47,6 +47,8 @@ hinge_bottom = 5;
 //Distance between flaps
 distance = 1; // Smartberts ergänzung
 
+// Flip Card
+flip_card = false; //[false, true]
 
 /* [Hidden] */
 eps = 0.01;      // epsilon to intersect faces
@@ -134,18 +136,19 @@ module letter(letter1, letter2) {
 
 if (model=="letter") {
     $fn = $preview ? 12 : 72;
-    color ("white") letter(letter1, letter2);
+     
+    rotate ([flip_card ? 180 : 0, 0, 0]) color ("white") letter(letter1, letter2);
 }
 
 if (model=="card") {
     $fn = $preview ? 12 : 72;
-    color ("gray") card(letter1, letter2);
+    rotate ([flip_card ? 180 : 0, 0, 0]) color ("gray") card(letter1, letter2);
 }
 
 if (model=="all") {
     $fn = $preview ? 12 : 72;
-    color ("white") translate ([0, 0, -eps]) scale([1, 1, 1+eps2]) letter(letter1, letter2);
-    color ("gray") card(letter1, letter2);
+    rotate ([flip_card ? 180 : 0, 0, 0]) color ("white") translate ([0, 0, -eps]) scale([1, 1, 1+eps2]) letter(letter1, letter2);
+    rotate ([flip_card ? 180 : 0, 0, 0]) color ("gray") card(letter1, letter2);
 }
 
 if (model == "loop"){
