@@ -1,61 +1,91 @@
+// Version 1.1.0 2021-09-15
 // SplitFlap Generator by Golgarath 2021-06-11 & 2021-06-12
 // contributions by ThePseud0o & Smartbert
 // Thanks to ProjektionTV & Community
 
-// Model to generate:  
-model = "all"; //[card, letter, all, loop, animation]
+// History: 
+// V 1.0.x - Initial Release & Minor Bugfixes
+// V 1.1.0 - Letter on front & back can be configuered independent from ech other
+//           Twitch Emote "Kappa" added 
 
-//letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .!?0123456789";
-//Letter front side (flap is on top)
-letter1 = "A";
-//Letter front side (flap is at bottom)
-letter2 = "B";
+/* [Output] */
+// Model to generate: "card", "letter", "all" - both, "loop" - overview complete set, "animation"
+model = "loop"; //[card, letter, all, loop, animation]
+// For the "loop" variant it is important to set the yyyy1 and yyyy2 parameters to equal values.
 
-// Font for Letters
-font = "Roboto Mono:Bold"; //["Roboto Mono:Bold","Arial Black","Comic Sans MS","Ubuntu Mono"]
+// letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ .!?0123456789";
+// Letter front side (flap is at top)
+letter1 = "B";
+// Letter back side (flap is at top)
+letter2 = "/Grafik/Kappa.svg";
+
+/* [Modifiers Front] */
+
+// Font for Letter
+font1 = "Roboto Mono:Bold"; //["Roboto Mono:Bold","Arial Black","Comic Sans MS","Ubuntu Mono"]
+
+// resize factor for letters
+// resize factor for letter in X direction
+scale_x1 = 0.7; 
+// resize factor for letter in Y direction
+scale_y1 = 0.75;
+// letter shift on x
+move_x1 = -0.6;
+// letter thickness
+letter_thickness1 = 0.3;
+// baseline for letter
+baseline1 = 10;
+
+/* [Modifiers Back] */
+
+// Font for Letter
+font2 = "Roboto Mono:Bold"; //["Roboto Mono:Bold","Arial Black","Comic Sans MS","Ubuntu Mono"]
 //resize factor for letters
 //resize factor for letter in X direction
-scale_x = 0.7; 
+scale_x2 = 0.7; 
 //resize factor for letter in Y direction
-scale_y = 0.75;
-// Letter Movement on X
-move_X = -0.6;
-// Letter thickness
-letter_thickness = 0.2;
-//baseline for Letter
-baseline = 10;
+scale_y2 = 0.75;
+// letter shift on x
+move_x2 = -0.6;
+// letter thickness
+letter_thickness2 = 0.3;
+// baseline for letter
+baseline2 = 10;
 
+
+/* [Base SplitFlap Card] */
 // Size of card
-//Height of the card in mm
+// Height of the card in mm
 height  = 42.8; 
-//Width of the card in mm
+// Width of the card in mm
 width   = 54;
-//Thickness of the card in mm
-thickness = .6;
- // Corner radius in mm
+// Thickness of the card in mm
+thickness = .9;
+// Corner radius in mm
 r = 3;
 
-//coutout width
+// cutout width
 hinge_width = 2;
 // cutout from top
-hinge_top = 3; 
+hinge_top = 1.59; 
 // hinge size
-hinge = 2; 
-//cutout below hinge
-hinge_bottom = 5; 
+hinge = 1.6; 
+// cutout below hinge
+hinge_bottom = 14; 
 
-//Distance between flaps
+// Distance between flaps
 distance = 1; // Smartberts ergänzung
 
+/* [Export Parameter] */
 // Flip Card
 flip_card = false; //[false, true]
 
 /* [Hidden] */
-eps = 0.01;      // epsilon to intersect faces
-eps2 = eps * 2;  // epsilon * 2 to intersect faces
+eps = 0.001;      // epsilon to intersect faces
+eps2 = eps * 2;   // epsilon * 2 to intersect faces
 
 //letters for "loop" model
-letters = ["9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " ", ".", "!", "?", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A"];
+letters = ["9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " ", "_", "#", "/Grafik/Kappa.svg", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A"];
 lettercount = 40;
 
 module rcube(size, radius) {
@@ -111,26 +141,38 @@ module card(letter1, letter2) {
     }
 }
 
-module char (char){
+module char (char, scale_x, scale_y, letter_thickness, fontStyle){
+
+    if (len(char) > 3)
+    {   
+        scale([scale_x, scale_y, 1]) 
+            linear_extrude(letter_thickness + eps)        
+            translate ([-32 , 0, 0]) 
+            resize([65, 0, 0] , auto=[true, true, false]) 
+                import (char);
+    } 
+    else
+    {
     scale([scale_x, scale_y, 1]) 
         linear_extrude(letter_thickness + eps)        
-            text(char, size=(height * 2), halign="center", valign="baseline", font=font);
+        text(char, size=(height * 2), halign="center", valign="baseline", font=fontStyle);
+    }
 }
 
 module letter(letter1, letter2) {
-     intersection(){ //Letter top
+     intersection(){ //Letter front
         basecard();        
         rotate([180, 0, 0]) 
-            translate ([width/2 + move_X, -(height*2) + baseline - distance / 2, -letter_thickness ]) 
-                resize([0, 0, letter_thickness+eps] , auto=[false,false,true]) 
-                    char (letter1);
+            translate ([width/2 + move_x1, -(height*2) + baseline1 - distance / 2, -letter_thickness1 ]) 
+                resize([0, 0, letter_thickness1+eps] , auto=[false,false,true]) 
+                    char (letter1, scale_x1, scale_y1, letter_thickness1, font1);
     }
     
-    intersection(){ //Letter bottom
+    intersection(){ //Letter back
         basecard();
-        translate ([width/2 + move_X, 0 + baseline + distance / 2, thickness-letter_thickness]) 
-            resize([0, 0, letter_thickness + eps], auto=[false,false,true]) 
-                char (letter2);
+        translate ([width/2 + move_x2, 0 + baseline2 + distance / 2, thickness-letter_thickness2]) 
+            resize([0, 0, letter_thickness2 + eps], auto=[false,false,true]) 
+                char (letter2, scale_x2, scale_y2, letter_thickness2, font2);
     }
 }
 
@@ -153,21 +195,23 @@ if (model=="all") {
 
 if (model == "loop"){
     $fn = $preview ? 24 : 72;
+    eps = 0.1;
+    eps2 = eps * 2;
+     
     for (a=[0:lettercount-1]) {
         
         translate([(width+10)*(a%10), (height*2 + 10+distance) * floor(a / 10), -eps]) 
             color ("white") scale([1, 1, 1+eps2]) letter(letters[a], letters[a+1]);
         translate([(width+10)*(a%10), (height*2 + 10+distance) * floor(a / 10), 0]) 
-            color ("gray") basecard();//card(letters[a], letters[a+1]);
+            color ("gray") basecard();
         
         rotate([180, 0, 0]) translate([(width+10)*(a%10), -height*2-distance - (height*2 + 10+distance) * floor(a / 10), -thickness -eps]) 
             color ("white") scale([1, 1, 1+eps2]) letter(letters[a+1], letters[a+2]);
         rotate([180, 0, 0]) translate([(width+10)*(a%10),-height*2-distance - (height*2 + 10+distance) * floor(a / 10), -thickness]) 
-            color ("gray") basecard();//card(letters[a+1], letters[a+2]);
+            color ("gray") basecard();
         
     }
 }
-
 
 if (model == "animation"){
     animate = "ABCDEFGHIJKLMNOP";

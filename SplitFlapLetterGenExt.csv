@@ -1,0 +1,41 @@
+Filename;letter1;letter2;font1;scale_x1;scale_y1;move_X1;letter_thickness1;baseline1;font2;scale_x2;scale_y2;move_X2;letter_thickness2;baseline2
+SF-A-B;A;B;Roboto Mono:Bold;;0.75;-0.6;0.3;10;Roboto Mono:Bold;;0.75;-0.6;0.3;10
+SF-B-C;B;C;Roboto Mono:Bold;0.7;;-0.6;0.3;10;Roboto Mono:Bold;0.7;;-0.6;0.3;10
+SF-C-D;C;D;Roboto Mono:Bold;0.7;0.75;;0.3;10;Roboto Mono:Bold;0.7;0.75;;0.3;10
+SF-D-E;D;E;Roboto Mono:Bold;0.7;0.75;-0.6;;10;Roboto Mono:Bold;0.7;0.75;-0.6;;10
+SF-E-F;E;F;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;
+SF-F-G;F;G;Roboto Mono:Bold;;;-0.6;0.3;10;Roboto Mono:Bold;;;-0.6;0.3;10
+SF-G-H;G;H;Roboto Mono:Bold;0.7;;;0.3;10;Roboto Mono:Bold;0.7;;;0.3;10
+SF-H-I;H;I;Roboto Mono:Bold;0.7;0.75;;;10;Roboto Mono:Bold;0.7;0.75;;;10
+SF-I-J;I;J;Roboto Mono:Bold;0.7;0.75;-0.6;;;Roboto Mono:Bold;0.7;0.75;-0.6;;
+SF-J-K;J;K;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-K-L;K;L;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-L-M;L;M;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-M-N;M;N;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-N-O;N;O;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-O-P;O;P;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-P-Q;P;Q;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-Q-R;Q;R;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-R-S;R;S;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-S-T;S;T;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-T-U;T;U;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-U-V;U;V;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-V-W;V;W;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-W-X;W;X;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-X-Y;X;Y;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-Y-Z;Y;Z;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-Z-blank;Z;' ';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-blank-_;' ';_;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;50
+SF-_-#;_;#;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;50;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-#-Kappa;#;/Grafik/Kappa.svg;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-Kappa-0;/Grafik/Kappa.svg;'0';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-0-1;'0';'1';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-1-2;'1';'2';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-2-3;'2';'3';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-3-4;'3';'4';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-4-5;'4';'5';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-5-6;'5';'6';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-6-7;'6';'7';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-7-8;'7';'8';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-8-9;'8';'9';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
+SF-9-A;'9';'A';Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10;Roboto Mono:Bold;0.7;0.75;-0.6;0.3;10
