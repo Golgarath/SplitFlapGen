@@ -6,7 +6,7 @@
 // History: 
 // V 1.0.x - Initial Release & Minor Bugfixes
 // V 1.1.0 - Letter on front & back can be configuered independent from ech other
-//           Twitch Emote "Kappa" added 
+//           SVG support added 
 
 /* [Output] */
 // Model to generate: "card", "letter", "all" - both, "loop" - overview complete set, "animation"
